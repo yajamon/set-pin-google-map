@@ -18,7 +18,7 @@ Markers.prototype.add = function(options) {
     }));
 };
 
-Markers.prototype.setAllMap = function(map) {
+Markers.prototype.setMap = function(map) {
     for (var index = 0; index < this.list.length; index++) {
         this.list[index].setMap(map);
     }

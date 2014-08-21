@@ -27,6 +27,6 @@ google.maps.event.addDomListener(window, 'load', function() {
     };
     var map = new google.maps.Map(mapdiv, myOptions);
 
-    markers.setAllMap(map);
+    markers.setMap(map);
 });
 
