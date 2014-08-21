@@ -19,7 +19,16 @@ Markers.prototype.add = function(options) {
 };
 
 Markers.prototype.setMap = function(map) {
+    this.each(function(index, marker) {
+        marker.setMap(map);
+    });
+};
+
+Markers.prototype.each = function(callback) {
+    if (typeof callback !== "function") {
+        throw new TypeError("callback is not function.");
+    }
     for (var index = 0; index < this.list.length; index++) {
-        this.list[index].setMap(map);
+        callback(index, this.list[index]);
     }
 };
