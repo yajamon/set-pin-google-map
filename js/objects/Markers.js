@@ -23,6 +23,13 @@ Markers.prototype.add = function(options) {
 Markers.prototype.setMap = function(map) {
     this.each(function(index, marker) {
         marker.setMap(map);
+
+        var infoWindow = new google.maps.InfoWindow({
+            content : marker.title,
+        });
+        google.maps.event.addListener(marker, 'click', function () {
+            infoWindow.open(map, marker);
+        });
     });
 };
 

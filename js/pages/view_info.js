@@ -17,13 +17,6 @@ markers.add({
     lng: 139.689626,
 });
 
-var infoWindow1 = new google.maps.InfoWindow({
-    content: 'JR新宿駅',
-});
-var infoWindow2 = new google.maps.InfoWindow({
-    content: '新宿中央公園',
-});
-
 window.addEventListener('load', function() {
     var mapdiv = document.getElementById('map_canvas');
     var myOptions = {
@@ -35,7 +28,5 @@ window.addEventListener('load', function() {
     var map = new google.maps.Map(mapdiv, myOptions);
 
     markers.setMap(map);
-    infoWindow1.open(map, markers.list[0]);
-    infoWindow2.open(map, markers.list[1]);
 });
 
