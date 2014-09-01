@@ -12,6 +12,8 @@ var mapOptions = {
     scaleControl: true,
 };
 
+var markers = new Markers();
+
 var geocoder = new google.maps.Geocoder();
 var getOptions = {
     'address' : '新宿駅',
@@ -29,8 +31,6 @@ var geoCallback = function (result, status) {
         alert('エラー！');
     }
 }
-
-var markers = new Markers();
 
 window.addEventListener('load', function() {
     var mapdiv = document.getElementById('map_canvas');
