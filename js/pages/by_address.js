@@ -32,8 +32,6 @@ var geoCallback = function (result, status) {
 }
 
 var searchButtun = null;
-window.document.getElementById('search');
-
 
 window.addEventListener('load', function() {
     var mapdiv = document.getElementById('map_canvas');
