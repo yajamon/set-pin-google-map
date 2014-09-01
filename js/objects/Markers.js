@@ -41,3 +41,10 @@ Markers.prototype.each = function(callback) {
         callback(index, this.list[index]);
     }
 };
+
+Markers.prototype.clear = function() {
+    this.each(function (index, marker) {
+        marker.setMap(null);
+        this.list = [];
+    });
+};
