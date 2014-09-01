@@ -4,6 +4,14 @@ var totyo = {
     lng: 139.692101,
 };
 
+var map = null;
+var mapOptions = {
+    zoom: 15,
+    center: new google.maps.LatLng(totyo.lat, totyo.lng),
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
+    scaleControl: true,
+};
+
 var geocoder = new google.maps.Geocoder();
 var getOptions = {
     'address' : '新宿駅',
@@ -13,13 +21,7 @@ var markers = new Markers();
 
 window.addEventListener('load', function() {
     var mapdiv = document.getElementById('map_canvas');
-    var myOptions = {
-        zoom: 15,
-        center: new google.maps.LatLng(totyo.lat, totyo.lng),
-        mapTypeId: google.maps.MapTypeId.ROADMAP,
-        scaleControl: true,
-    };
-    var map = new google.maps.Map(mapdiv, myOptions);
+    map = new google.maps.Map(mapdiv, mapOptions);
 
     var callback = function (result, status) {
         if (status == google.maps.GeocoderStatus.OK) {
