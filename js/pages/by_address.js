@@ -4,6 +4,11 @@ var totyo = {
     lng: 139.692101,
 };
 
+var geocoder = new google.maps.Geocoder();
+var getOptions = {
+    'address' : '',
+};
+
 window.addEventListener('load', function() {
     var mapdiv = document.getElementById('map_canvas');
     var myOptions = {
@@ -13,4 +18,14 @@ window.addEventListener('load', function() {
         scaleControl: true,
     };
     var map = new google.maps.Map(mapdiv, myOptions);
+
+    var callback = function (result, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+            // code
+        } else {
+            alert('エラー！');
+        }
+    }
+
+    geocoder.geocode(getOptions, callback);
 });
