@@ -45,6 +45,6 @@ Markers.prototype.each = function(callback) {
 Markers.prototype.clear = function() {
     this.each(function (index, marker) {
         marker.setMap(null);
-        this.list = [];
     });
+    this.list = [];
 };
