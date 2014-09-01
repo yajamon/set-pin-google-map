@@ -27,7 +27,7 @@ window.addEventListener('load', function() {
             markers.add({
                 lat: latLng.lat(),
                 lng: latLng.lng(),
-                title: result.formatted_address,
+                title: result[0].formatted_address,
             });
             markers.setMap(map);
         } else {
