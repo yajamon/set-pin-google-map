@@ -15,11 +15,10 @@ var mapOptions = {
 var markers = new Markers();
 
 var geocoder = new google.maps.Geocoder();
-var getOptions = {
-    'address' : '新宿駅',
-};
 var geoCallback = function (result, status) {
     if (status == google.maps.GeocoderStatus.OK) {
+        markers.clear();
+
         var latLng = result[0].geometry.location;
         markers.add({
             lat: latLng.lat(),
@@ -32,9 +31,22 @@ var geoCallback = function (result, status) {
     }
 }
 
+var searchButtun = null;
+window.document.getElementById('search');
+
+
 window.addEventListener('load', function() {
     var mapdiv = document.getElementById('map_canvas');
     map = new google.maps.Map(mapdiv, mapOptions);
 
-    geocoder.geocode(getOptions, geoCallback);
+    searchButtun = window.document.getElementById('search');
+
+    searchButtun.addEventListener('click', function () {
+        var address = window.document.getElementById('address');
+        var getOptions = {
+            'address' : address.value,
+        };
+        geocoder.geocode(getOptions, geoCallback);
+    });
+    searchButtun.click();
 });
