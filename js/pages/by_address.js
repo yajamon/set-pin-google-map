@@ -6,8 +6,10 @@ var totyo = {
 
 var geocoder = new google.maps.Geocoder();
 var getOptions = {
-    'address' : '',
+    'address' : '新宿駅',
 };
+
+var markers = new Markers();
 
 window.addEventListener('load', function() {
     var mapdiv = document.getElementById('map_canvas');
@@ -21,7 +23,13 @@ window.addEventListener('load', function() {
 
     var callback = function (result, status) {
         if (status == google.maps.GeocoderStatus.OK) {
-            // code
+            var latLng = result[0].geometry.location;
+            markers.add({
+                lat: latLng.lat(),
+                lng: latLng.lng(),
+                title: result.formatted_address,
+            });
+            markers.setMap(map);
         } else {
             alert('エラー！');
         }
